@@ -1,2 +1,6 @@
 .aws
-.env
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfplan
+*.tfstate.backup
