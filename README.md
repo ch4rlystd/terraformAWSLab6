@@ -1,5 +1,9 @@
 # terraformAWSLab6
 
+## Schema
+
+![Project schema](img/schemaProjet.png)
+
 ## To do
 
 - [x] VPC (Subnets, availability zones)
