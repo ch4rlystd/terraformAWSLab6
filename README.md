@@ -33,3 +33,13 @@
 - terraform.tfvars: provides concrete values for variables (CIDRs, sizes, names)
 - outputs.tf: exposes outputs printed after running `terraform apply`(Subnets and VPC IDs and clickable link to web server)
 - terraform.tfstate: Terraform state (Do not modify)
+
+## Commands
+
+- `terraform init` - Initializes a Terraform working directory and downloads required provider plugins
+- `terraform fmt` - Formats Terraform configuration files to standard style
+- `terraform fmt -check` - Checks if files are properly formatted without modifying them
+- `terraform validate` - Validates the syntax and configuration of Terraform files
+- `terraform plan` - Shows what changes Terraform will make to your infrastructure
+- `terraform apply` - Applies the planned changes and creates or updates resources
+- `terraform destroy` - remove all the resources defined in Terraform configuration
