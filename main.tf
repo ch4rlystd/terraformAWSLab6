@@ -230,7 +230,8 @@ resource "aws_instance" "web_server_1" {
   subnet_id                   = aws_subnet.public_subnet2.id
   vpc_security_group_ids      = [aws_security_group.web_server_1_sg.id]
   user_data_replace_on_change = true
-
+  key_name                    = aws_key_pair.web_server_key.key_name
+  depends_on                  = [aws_key_pair.web_server_key]
   tags = {
     Name = "Web Server 1"
   }
@@ -251,6 +252,15 @@ resource "aws_instance" "web_server_1" {
     EOF
 }
 
+resource "aws_key_pair" "web_server_key" {
+  key_name   = "web_server_key"
+  public_key = file("web-server-key.pub")
+
+  tags = {
+    Name = "Key pair for web server access"
+  }
+}
+
 
 
 #####################
@@ -269,6 +279,7 @@ resource "aws_db_instance" "rds_db" {
   db_subnet_group_name   = aws_db_subnet_group.rds_db_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds_db_sg.id]
   availability_zone      = aws_subnet.private_subnet1.availability_zone
+  skip_final_snapshot    = true
 
   tags = {
     Name = "RDS DB"
