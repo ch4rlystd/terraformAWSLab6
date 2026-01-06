@@ -56,3 +56,6 @@
 ### SSH
 
 - `ssh -i web-server-key ec2-user@<Public_DNS>`
+
+
+Si il me demande comment j'ai gerer les permissions -> avec les security groupe
